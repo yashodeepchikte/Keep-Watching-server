@@ -93,7 +93,23 @@ def user_colaborativefiltering() :
     print(recommendations)
     reset_files()
     return jsonify(recommendations)
+
     
+@app.route("/recommendations/colaborativefiltering/items", methods=["POST"])
+def item_colaborativefiltering():
+    userID = request.json["userID"]
+    user_ratings = request.json["ratings"]
+    print("user id = ", userID)
+    print("user_ratings = ", user_ratings)
+    user_ratings = json.loads(user_ratings)
+    user_ratings = counvert_ratings_to_tuple_format(user_ratings)  
+    print("user Rating in tuple format = ", user_ratings)
+    userID = add_user_to_dataset(userID, user_ratings)
+    recommendations = colaborativeFilering_UserBased(user_ratings, userID)
+    print(recommendations)
+    reset_files()
+    return jsonify(recommendations)
+
 # RunServer
 if __name__ == "__main__":
     app.run(host='localhost',port='8000')

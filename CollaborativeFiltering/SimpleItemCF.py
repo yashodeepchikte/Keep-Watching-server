@@ -49,6 +49,8 @@ def runItemBasedColaborativeFiltering(testSubject = '85',k = 10):
     for itemID, ratingSum in sorted(candidates.items(), key=itemgetter(1), reverse=True):
         if not itemID in watched:
             movieID = trainSet.to_raw_iid(itemID)
+            movieID = float(movieID)
+            movieID = int(movieID)
             recommendations.append(int(movieID))
             print(ml.getMovieName(int(movieID)), ratingSum)
             pos += 1
