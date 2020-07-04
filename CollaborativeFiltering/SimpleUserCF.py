@@ -13,7 +13,7 @@ from operator import itemgetter
 
 
  
-def runUserColaborativeFiltering(testSubject = "85", k = 10):
+def runUserColaborativeFiltering(testSubject = "85", k = 14):
     
     # Load our data set and compute the user similarity matrix
     ml = MovieLens()
@@ -73,7 +73,7 @@ def runUserColaborativeFiltering(testSubject = "85", k = 10):
             recommendations.append(int(movieID))
             print(ml.getMovieName(int(movieID)), ratingSum)
             pos += 1
-            if (pos > 10):
+            if (pos > 20):
                 break
     print("-------------------<><><><>--------------------")
     # these are the id in the movie lens dataset
