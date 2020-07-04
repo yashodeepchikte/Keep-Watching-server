@@ -54,7 +54,7 @@ def runItemBasedColaborativeFiltering(testSubject = '85',k = 10):
             recommendations.append(int(movieID))
             print(ml.getMovieName(int(movieID)), ratingSum)
             pos += 1
-            if (pos > 10):
+            if (pos > 20):
                 break
     print("\n\n-------------------<><><><>--------------------")
 
